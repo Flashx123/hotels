@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-
-const mongoUrl = 'mongodb://localhost:27017/ContactDetails'
-
+require('dotenv').config();
+//const mongoUrl = 'mongodb://localhost:27017/ContactDetails'
+const mongoUrl = process.env.DBS_URL;
 async function connectDB() {
     try {
       await mongoose.connect(mongoUrl); /// pasuses the execution of the connection until a promise is resolvednp

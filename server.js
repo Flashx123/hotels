@@ -2,9 +2,10 @@ const express = require('express');
 const db = require('./db'); // Ensure the import matches the export
 const bodyParser = require('body-parser');
 const personRoutes = require('./routes/personRoutes')
+require('dotenv').config();
 
 const app = express();
-const port = 3001;
+//const port = 3001;
 
 
 
@@ -49,7 +50,7 @@ app.get('/person/:workType', async(req,res) => {
       res.status(500).json({ err: 'freaking disappointed', details: err.message }); // Added status code
     }
 });*/
-// Call the connectDB function to establish the database connection.
+// Call the connectDB function to establish the database connection
 //connectDB();
 
 app.use('/person' , personRoutes); // this / person will give the path to person Route which has the gets and posts
@@ -58,6 +59,8 @@ app.get('/', function (req, res){
   res.send('Thik hai server');
 });
 
-app.listen(port, () => {
+
+const PORT = process.env.PORT   // dotenv removes the applicable infomatinoon 
+app.listen(PORT, () => {
   console.log('Chal raha hai Bhai');
 });
