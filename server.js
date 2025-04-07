@@ -56,7 +56,7 @@ app.get('/person/:workType', async(req,res) => {
 app.use('/person' , personRoutes); // this / person will give the path to person Route which has the gets and posts
 
 app.get('/', function (req, res){
-  res.send('Thik hai server');
+  res.send('Kam kori ase ne nai');
 });
 
 
